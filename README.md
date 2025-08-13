@@ -6,9 +6,7 @@ I utilize [LM Studio](https://lmstudio.ai) along with the [MistralAI](https://mi
 from a WordPress
 plugin.
 
-
 https://github.com/user-attachments/assets/32361821-6fe5-4476-81e9-e42095f20fe1
-
 
 ## How to use:
 
@@ -28,3 +26,5 @@ https://github.com/user-attachments/assets/32361821-6fe5-4476-81e9-e42095f20fe1
 ```sh
   php translate.php
   ```
+
+6. Lastly, review the translated file.

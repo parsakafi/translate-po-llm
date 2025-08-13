@@ -6,6 +6,10 @@ I utilize [LM Studio](https://lmstudio.ai) along with the [MistralAI](https://mi
 from a WordPress
 plugin.
 
+https://github.com/user-attachments/assets/86fe5c3f-9383-4982-904c-584941a9470e
+
+
+
 ## How to use:
 
 1. First download or clone this repository

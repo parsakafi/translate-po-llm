@@ -18,6 +18,7 @@ $config = array(
 	'max_translate'            => 50, // Set -1 to unlimit
 	'retranslate'              => false, // Do not retranslate translated words, true or false.
 	'sleep_between_translates' => 1, // Time in seconds or set false
+	'print_separator'          => PHP_SAPI === 'cli' ? "\n" : '<br>',
 	'translate_from'           => array(
 		'language' => 'English',
 		'code'     => 'en'
@@ -44,9 +45,9 @@ $config['api_config'] = array(
 	"temperature" => 0.7,
 );
 
-function translatePoFile( $config ) {
-	require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
+function translatePoFile( $config ) {
 	if ( ! file_exists( $config['po_file'] ) ) {
 		die( 'po file not found' );
 	}
@@ -60,10 +61,10 @@ function translatePoFile( $config ) {
 		return;
 	}
 
-	echo 'Translating po file: ' . $config['po_file'] . "<br>";
-	echo 'Line count: ' . $count . "<br>";
+	echo 'Translating po file: ' . $config['po_file'] . $config['print_separator'];
+	echo 'Line count: ' . $count . $config['print_separator'];
+	echo $config['print_separator'];
 
-	echo "<br>";
 	foreach ( $translations->getTranslations() as $translation ) {
 		if ( ! $config['retranslate'] && $translation->isTranslated() ) {
 			continue;
@@ -72,7 +73,7 @@ function translatePoFile( $config ) {
 		$translate = translateRequest( $translation->getId(), $config );
 		if ( $translate ) {
 			$translation->translate( $translate );
-			echo $c . '- ' . $translation->getId() . ' >>>> ' . $translate . '<br>';
+			echo $c . '- ' . $translation->getId() . ' >>>> ' . $translate . $config['print_separator'];
 		}
 
 		ob_flush(); // Flush output buffer to show progress immediately

@@ -1,0 +1,13 @@
+{
+  "name": "parsa/translate-po-llm",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Parsa Kafi",
+      "email": "parselearn@gmail.com"
+    }
+  ],
+  "require": {
+    "gettext/gettext": "^5.7"
+  }
+}
